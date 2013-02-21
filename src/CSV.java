@@ -1,20 +1,19 @@
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 
 public class CSV {
 
-
-	try
-	{
-		String chemin = "C:\Users\Xavier\Desktop\Documents\fichier.csv";
-	   BufferedReader fichier_source = new BufferedReader(new FileReader(chemin));
-	   String chaine;
-	   int i = 1;
-	 
-	   while((chaine = fichier_source.readLine())!= null)
+	   public void TraiterCSV (FileReader file) throws IOException
 	   {
+		 int i = 1;
+	     String chemin = "C:\"Users\"Xavier\"Desktop\"Documents\"fichier.csv";
+	     BufferedReader fichier_source = new BufferedReader(new FileReader(chemin));
+	     String chaine;
+	     while((chaine = fichier_source.readLine())!= null)
+	     {
 	      if(i > 1)
 	      {
 	         String[] tabChaine = chaine.split(";");
@@ -23,18 +22,11 @@ public class CSV {
 	      }
 	      i++;
 	   }
-	   fichier_source.close();                 
-	}
-	catch (FileNotFoundException e)
-	{
-	   System.out.println("Le fichier est introuvable !");
-	}
-	
-	
+	   fichier_source.close();           
+	   }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
 
-}
 }
